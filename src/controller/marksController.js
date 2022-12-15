@@ -89,39 +89,7 @@ module.exports = {
     }
   },
 
-  // addMarks: async (req, res) => {
-  //   try {
-  //     let data = req.body;
-  //     let { name, marks } = data;
-  //     if (!objectValue(name))
-  //       return res.status(400).send({
-  //         status: false,
-  //         message: "Please enter a valid student name",
-  //       });
-  //     if (!Number.isInteger(marks))
-  //       return res
-  //         .status(400)
-  //         .send({ status: false, message: "Marks should be in integer" });
-  //     let student = await marksModel.findOne({ name });
-  //     if (!student)
-  //       return res
-  //         .status(400)
-  //         .send({ status: false, message: "Student not found" });
-  //     let studentId = student._id;
-  //     let updateMarks = await marksModel.findByIdAndUpdate(
-  //       { _id: studentId },
-  //       { $inc: { marks: marks } },
-  //       { new: true }
-  //     );
-  //     return res.status(200).send({
-  //       status: true,
-  //       message: "Marks updated successfully",
-  //       data: updateMarks,
-  //     });
-  //   } catch (err) {
-  //     return res.status(500).send({ status: false, message: err.message });
-  //   }
-  // },
+  
 
   editDetails: async (req, res) => {
     let data = req.body;
@@ -144,11 +112,7 @@ module.exports = {
       return res
         .status(400)
         .send({ status: false, message: "Marks should be in integer" });
-    let updateThings = {};
-    if (name) {
-      updateThings.name = name;
-    }
-
+   
     let editMarksheet = await marksModel.findOneAndUpdate(
       { _id: studentId },
       { $set: data },

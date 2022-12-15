@@ -13,7 +13,6 @@ router.post(
   marksController.studentMarks
 );
 router.get("/getStudent", marksController.getMarks);
-// router.put("/addMarks", marksController.addMarks);
 router.put(
   "/editDetails/:studentId/:userId",
   middlewear.authentication,
